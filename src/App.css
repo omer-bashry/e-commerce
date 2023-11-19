@@ -1,0 +1,247 @@
+.main-button {
+  background-color: #ffa45c;
+  color: white;
+  border: 2px solid #ffa45c;
+  padding: 5px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.main-button:hover {
+  background-color: white;
+  color: #ffa45c;
+}
+.sedcond-button {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+.sedcond-button:hover {
+  background-color: #ffa45c;
+}
+/* Default styles for content container */
+.content-container {
+  text-align: center;
+}
+
+/* Default styles for image container */
+.image-container {
+  text-align: center;
+}
+
+/* Media query for screens smaller than md (medium) */
+@media (max-width: 898px) {
+  .cartImage {
+    display: none;
+  }
+  /* Styles for mobile screens */
+  .content-container {
+    background-size: cover;
+    background-position: center;
+    padding: 2rem;
+    height: 500px;
+  }
+  .content-container.one {
+    background-image: url("https://crossroadstrading.com/wp-content/uploads/2019/03/Mariano-di-Vaio.png");
+  }
+  .content-container.two {
+    background-image: url("https://crossroadstrading.com/wp-content/uploads/2019/03/Phil-Cohen.png");
+  }
+
+  .content-container h1,
+  .content-container p {
+    color: white;
+  }
+
+  .main-btn {
+    background-color: #333;
+    color: white;
+  }
+
+  /* Hide the image container on mobile screens */
+  .image-container {
+    display: none;
+  }
+
+  .map-img {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .login-img {
+    display: none;
+  }
+  .login-text-div {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fafafa;
+  }
+}
+.content-container p {
+  line-height: 1.8;
+  width: 65%;
+  margin: auto;
+}
+
+.buttonsDev {
+  display: none;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  bottom: 27px;
+  width: 100%;
+  transition: 0.3s;
+}
+.imgContaner {
+  position: relative;
+}
+.buttonsDev button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+.buttonsDev button:hover {
+  background-color: #ffa45c;
+}
+.Allcard:hover .buttonsDev {
+  display: flex;
+}
+.Allcard {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  padding: 10px;
+}
+.commentIcon {
+  position: absolute;
+  bottom: 0;
+  top: 63%;
+  left: 17%;
+  background-color: white;
+  color: #ffa45c;
+  border-radius: 50%;
+  font-size: 39px;
+}
+.commentP:before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 88px;
+  background-color: #ffa45c;
+  left: -23px;
+}
+.emailInput {
+  padding: 10px;
+  letter-spacing: 2px;
+  width: 50%;
+}
+.emailInput:focus {
+  outline: none;
+}
+
+.SubmitBtn {
+  padding: 11px 15px;
+  background-color: black;
+  border: none;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid;
+  letter-spacing: 3px;
+}
+.SubmitBtn:hover {
+  color: black;
+  background-color: white;
+}
+.socialIcons span {
+  background-color: black;
+  color: white;
+  padding: 10px 8px;
+  border-radius: 50%;
+  margin-right: 20px;
+  transition: 0.3s;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.socialIcons span:hover {
+  background-color: white;
+  color: black;
+}
+.piecesNumberInpit {
+  width: 100%;
+  padding: 10px;
+}
+.piecesNumberInpit:focus {
+  outline: none;
+}
+.blogTags span {
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 10px;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.blogTags span:hover {
+  background-color: black;
+  color: white;
+}
+.centerCartItems {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+.shoplist li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+.numberIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0 0;
+  gap: 15px;
+}
+
+.numberIcons span {
+  background-color: white;
+  padding: 9px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.numberIcons span:hover,
+.numberIcons span.active {
+  background-color: black;
+  color: white;
+}
+
+.login-button {
+  background: #b08bf8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 26px;
+  margin: 35px 0;
+  transition: 0.3s;
+}
+.login-button:hover {
+  background-color: #9a56e5;
+}
+.coming-soon-main {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  background-image: url(https://preview.colorlib.com/theme/winkel/images/bg_6.jpg.webp);
+}
+.timer span {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
