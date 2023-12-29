@@ -82,4 +82,4 @@ If you have any questions or feedback, feel free to reach out:
 Thank you for exploring my React E-Commerce project! I hope you enjoy using it as much as I enjoyed building it. If you encounter any issues or have suggestions for improvement, please don't hesitate to contact me. Happy shopping!
 
 ## LiveDemo
- ### web Site Link: https://imaginative-speculoos-dca5ce.netlify.app/
+ ### Web Site Link: https://imaginative-speculoos-dca5ce.netlify.app/
