@@ -74,7 +74,7 @@ You can get anything awsome from here
 ## Contact
 If you have any questions or feedback, feel free to reach out:
 
-- Email: mrbashry@gmail.com
+- Email: mrbashry256@gmail.com
 - GitHub: omer-bashry
 
 
