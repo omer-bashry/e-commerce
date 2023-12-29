@@ -242,3 +242,7 @@ export default function Home() {
 // 4- Create subscribtion alrt.
 // 5- Footer spacing in small screens.
 // 6- Change products buttons from hover state to solid state.
+// 7- Puts all products cards in the same size.
+// 8- Make single product page resposive.
+// 9- Make catogeries flex in the small screens.
+// 10- Add value to single product prop

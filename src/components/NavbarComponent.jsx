@@ -9,12 +9,16 @@ import { Link } from "react-router-dom";
 // bootstrab
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
+
+// products array
 export default function NavbarComponent() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home" className="text-bold">
-          <h2>WINKEL</h2>
+          <Link to="/" style={{ color: "black", textDecoration: "none" }}>
+            <h2>WINKEL</h2>
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -36,7 +40,7 @@ export default function NavbarComponent() {
               <NavDropdown.Item>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
-                  to="/SingleProduct"
+                  to="/SingleProduct/1"
                 >
                   Single Product
                 </Link>
@@ -86,13 +90,18 @@ export default function NavbarComponent() {
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse>
-          <Nav.Link href="#">
-            <ShoppingCartIcon />
-            <span>[0]</span>
+          <Nav.Link>
+            <Link style={{ textDecoration: "none", color: "black" }} to="/Cart">
+              <ShoppingCartIcon className=" me-3 " />
+            </Link>
           </Nav.Link>
-          <Nav.Link href="#">
-            <FavoriteBorderIcon />
-            <span>[0]</span>
+          <Nav.Link>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to="/Favorite"
+            >
+              <FavoriteBorderIcon />
+            </Link>
           </Nav.Link>
         </Navbar.Collapse>
       </Container>

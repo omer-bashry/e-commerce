@@ -13,6 +13,7 @@ import Cart from "./components/Cart";
 import Shop from "./components/Shope";
 import Login from "./components/Login";
 import ComingSoon from "./components/ComingSoon";
+import Favorite from "./components/Favorite";
 
 // react route
 import { Routes, Route } from "react-router-dom";
@@ -24,12 +25,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/SingleProduct" element={<SingleProduct />} />
+        <Route path="/SingleProduct/:productId" element={<SingleProduct />} />
         <Route path="/Blogs" element={<Blogs />} />
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Shop" element={<Shop />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/ComingSoon" element={<ComingSoon />} />
+        <Route path="/Favorite" element={<Favorite />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

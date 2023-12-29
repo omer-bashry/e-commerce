@@ -1,11 +1,52 @@
 /* eslint-disable no-unused-vars */
+// mui
 import Grid from "@mui/material/Unstable_Grid2";
 import { Container } from "react-bootstrap";
 import { ProductCard } from "./Cards Components/ProductsSec";
-import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import CircularProgress from "@mui/material/CircularProgress";
+
+// redux
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProducts,
+  fetchCategories,
+  fetchProductsByCategory,
+} from "../features/productsSlice";
+
+// react router
+import { Link } from "react-router-dom";
+
+// components
+import Error from "./Erorr";
 
 export default function Shop() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products);
+  const categories = useSelector((state) => state.products.categories);
+  const status = useSelector((state) => state.products.status);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchProducts());
+      dispatch(fetchCategories());
+
+      // setIsLoading(false);
+    }
+  }, [dispatch, status]);
+  if (status === "loading") {
+    // setIsLoading(true);
+  }
+
+  if (status === "failed") {
+    // console.log(error);
+    return <Error />;
+  }
+
+  const handleCategoryClick = (category) => {
+    dispatch(fetchProductsByCategory(category));
+  };
+
   return (
     <div style={{ padding: "40px 0", backgroundColor: "#fafafa" }}>
       <Container>
@@ -14,50 +55,26 @@ export default function Shop() {
             <div className=" text-center text-md-start">
               <div className="p-4 bg-light ">
                 <div>
-                  <h5 className=" mt-4 mb-2 ">CLOTHING</h5>
+                  <h5 className=" mt-4 mb-2 text-uppercase ">categories</h5>
                   <ul className=" list-unstyled  text-black-50  shoplist">
-                    <li>Shirts & Tops</li>
-                    <li>Dresses</li>
-                    <li>Shorts & Skirts </li>
-                    <li>Jackets</li>
-                    <li>Coats</li>
-                    <li>Sleeveless</li>
-                    <li>Trousers</li>
-                    <li>Winter</li>
-                    <li>Coats</li>
-                    <li>Jumpsuits</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="p-4 bg-light ">
-                <div>
-                  <h5 className=" mt-4 mb-2 ">JEANS</h5>
-                  <ul className=" list-unstyled  text-black-50  shoplist">
-                    <li>Shirts & Tops</li>
-                    <li>Dresses</li>
-                    <li>Shorts & Skirts </li>
-                    <li>Jackets</li>
-                    <li>Coats</li>
-                    <li>Sleeveless</li>
-                    <li>Trousers</li>
-                    <li>Winter</li>
-                    <li>Coats</li>
-                    <li>Jumpsuits</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="p-4 bg-light ">
-                <h5 className=" mt-4 mb-2 ">BAGS ACCESSORIES</h5>
-              </div>
-              <div className="p-4 bg-light ">
-                <div>
-                  <h5 className=" mt-4 mb-2 ">SHOES</h5>
-                  <ul className=" list-unstyled  text-black-50  shoplist">
-                    <li>Nike</li>
-                    <li>Adidas</li>
-                    <li>Shorts & Skirts </li>
-                    <li>Jackets</li>
-                    <li>Coats</li>
+                    <li
+                      onClick={() => {
+                        dispatch(fetchProducts());
+                        dispatch(fetchCategories());
+                      }}
+                      className=" text-uppercase "
+                    >
+                      All products
+                    </li>
+                    {categories.map((category) => (
+                      <li
+                        key={category}
+                        onClick={() => handleCategoryClick(category)}
+                        className=" text-uppercase "
+                      >
+                        {category}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -66,47 +83,42 @@ export default function Shop() {
           <Grid lg={9} md={9} sm={12} xs={12}>
             <div>
               <Grid container spacing={3}>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
-                <Grid lg={4} md={6} sm={6} xs={12}>
-                  <ProductCard image="https://preview.colorlib.com/theme/winkel/images/product-8.jpg.webp" />
-                </Grid>
+                {status === "loading" ? (
+                  <div
+                    style={{
+                      height: "90vh",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <CircularProgress />
+                  </div>
+                ) : (
+                  products.map((product) => (
+                    <Grid item lg={4} md={6} sm={6} xs={12} key={product.id}>
+                      {/* <Link
+                        to={`/SingleProduct/${product.id}`}
+                        style={{ textDecoration: "none", color: "black" }}
+                      > */}
+                      <div>
+                        <ProductCard
+                          product={product}
+                          image={product.image}
+                          title={product.title}
+                          category={product.category}
+                          description={product.description}
+                          id={product.id}
+                          price={product.price}
+                        />
+                      </div>
+                      {/* </Link> */}
+                    </Grid>
+                  ))
+                )}
+                {status === "failed" ? <div>network error</div> : ""}
               </Grid>
-            </div>
-            <div className="numberIcons">
-              <span>
-                <KeyboardDoubleArrowLeftIcon fontSize="small" />
-              </span>
-              <span className="active">1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-              <span>
-                <KeyboardDoubleArrowRightIcon fontSize="small" />
-              </span>
             </div>
           </Grid>
         </Grid>

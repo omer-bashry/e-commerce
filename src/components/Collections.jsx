@@ -1,8 +1,12 @@
 /* eslint-disable no-unused-vars */
+// mui
 import Grid from "@mui/material/Grid";
 import { useMediaQuery, useTheme } from "@mui/material";
-//Container
 import { Container } from "react-bootstrap";
+
+// react route
+import { Link } from "react-router-dom";
+
 export default function Collections() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
@@ -30,9 +34,11 @@ export default function Collections() {
               they live in Bookmarksgrove right at the coast of the Semantics, a
               large language ocean.
             </p>
-            <button className="main-button" style={{ margin: 0 }}>
-              SHOP NOW
-            </button>
+            <Link to="/Shop" style={{ textDecoration: "none" }}>
+              <button className=" main-button" style={{ margin: "0" }}>
+                shop now
+              </button>
+            </Link>
           </div>
         </Grid>
       </Grid>
@@ -59,9 +65,11 @@ export default function Collections() {
               they live in Bookmarksgrove right at the coast of the Semantics, a
               large language ocean.
             </p>
-            <button className="main-button" style={{ margin: 0 }}>
-              SHOP NOW
-            </button>
+            <Link to="/Shop" style={{ textDecoration: "none" }}>
+              <button className=" main-button" style={{ margin: "0" }}>
+                shop now
+              </button>
+            </Link>
           </div>
         </Grid>
       </Grid>
